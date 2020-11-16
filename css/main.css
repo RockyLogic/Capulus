@@ -50,6 +50,13 @@ body{
     text-align: center;
 }
 
+#aboutImage{
+    /* padding-left: 0px;
+    padding-right: 0px; */
+    overflow: hidden;
+    border-radius:20px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
 
 /* Contact Us Page */
 #contact{
@@ -81,5 +88,10 @@ textarea {
 }
 
 #label{
+    width: 100%;
+}
+
+/* Cart */
+#cart{
     width: 100%;
 }

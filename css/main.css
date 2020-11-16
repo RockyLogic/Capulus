@@ -42,6 +42,17 @@ body{
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* item pages */
+.itemDisplayImage{
+    border-radius: 20px;
+    background-size:auto 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
 /* About Us Page */
 #about{
     width: 100vw;

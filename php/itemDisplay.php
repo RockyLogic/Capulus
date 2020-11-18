@@ -31,9 +31,7 @@ $itemInfo = <<<EOD
     </p>
     <br>
     <br>
-    <form action="saveItem.php" method="POST">
-      <button type="submit" name="addToCart" value="$id" class="btn btn-success">Add To Cart</button>
-    </form>
+      <button onClick="addItem(this.id)" id="$id" class="btn btn-success" style="width:100%">Add To Cart</button>
     </div>
 EOD;
     print($itemInfo);

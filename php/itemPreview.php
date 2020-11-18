@@ -22,8 +22,8 @@ if ($result->num_rows > 0){
       <div class="shop-item-box col-12 col-md-6 col-lg-4">
         <div class="shop-item" style="background-image: url(' ../images/$img_name');">
           <h5 class="shop-item-title">$name</h5>
-          <button type="button" onClick="redirect(this.id)" id="$id" class="btn btn-info" style="bottom:5%; right:45%; position: absolute;">View</a>
-          <button type="submit" name="addToCart" value="$id" class="btn btn-success" style="bottom:5%; right:10%; position: absolute;">Add To Cart</button>
+          <button onClick="viewItem(this.id)" id="$id" class="btn btn-info" style="bottom:5%; right:45%; position: absolute;">View</a>
+          <button onClick="addItem(this.id)" id="$id" class="btn btn-success" style="bottom:5%; right:10%; position: absolute;">Add To Cart</button>
         </div>
       </div>
 

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/store.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
     <title>Our Store</title>
 </head>
 
@@ -14,7 +14,7 @@
     <nav id="navbar" class="navbar navbar-light navbar-expand-md ">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="https://www.linkedin.com/in/rocky-kuang/">
-                <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
+                <img src="images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
                 <h3 id="navbar-title"> Ecommerce</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,27 +43,16 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 itemDisplayImage" style="background-image: url('../images/travis1.jpg');">
-                <!-- <img src="../images/travis1.jpg" alt="Jordan 1" height="100%" style="margin-left: auto;"> -->
-            </div>
-            <div class=" col-12 col-lg-6 d-flex flex-column justify-content-center" style="padding: 0 50px;">
-                <h1>Jordan 1 Travis Scott</h1>
-                <h4>$1000</h4>
-                <br>
-                <h4>Description: </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus nibh vel leo aliquam molestie. Sed sit amet tellus metus. Aliquam erat volutpat. Mauris nunc justo.
-                </p>
-                <br>
-                <br>
-                <button class="btn btn-success">Add To Cart</button>
-            </div>
+          <?php
+            include 'php/itemDisplay.php';
+          ?>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js""></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="js/additional.js"></script>
 </body>
 
 </html>

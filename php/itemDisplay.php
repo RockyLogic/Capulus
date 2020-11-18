@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli("", "", "", "");;
+$mysqli = new mysqli();
 if ($mysqli -> connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     exit();
@@ -19,7 +19,7 @@ $img_name = $row["image_name"];
 
 $itemInfo = <<<EOD
   <div class="col-12 col-lg-6 itemDisplayImage" style="background-image: url('../images/$img_name');">
-  <!-- <img src="../images/travis1.jpg" alt="Jordan 1" height="100%" style="margin-left: auto;"> -->
+
   </div>
   <div class=" col-12 col-lg-6 d-flex flex-column justify-content-center" style="padding: 0 50px;">
     <h1>$name</h1>
@@ -31,7 +31,9 @@ $itemInfo = <<<EOD
     </p>
     <br>
     <br>
-    <button class="btn btn-success">Add To Cart</button>
+    <form action="saveItem.php" method="POST">
+      <button type="submit" name="addToCart" value="$id" class="btn btn-success">Add To Cart</button>
+    </form>
     </div>
 EOD;
     print($itemInfo);

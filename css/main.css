@@ -9,8 +9,39 @@ body{
 
 /* Welcome Page */
 #welcome{
-    width: 100vw;
-    height: 85vh;
+    width: calc(100vw - 10px);
+    min-height: 85vh;
+    overflow-x: hidden;
+
+}
+
+#welcome2{
+    width: calc(100vw - 10px);
+    min-height: 95vh;
+    overflow: hidden;
+}
+
+#welcome3{
+    width: calc(100vw - 10px);
+    min-height: 95vh;
+}
+
+.blueBtn{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: rgba(0,0,0,0.5);
+    font-weight: 600;
+    background-color: #B4D1E4;
+}
+
+.blueBtn:focus{
+    outline: none !important;
+    box-shadow: none;
+}
+
+.blueBtn i{
+    margin-left: 3px;
+    color: #f8706b;
 }
 
 
@@ -133,6 +164,20 @@ textarea {
     display: none;
 }
 
+/* Scroll Bar */
+/* Webpage Scroll Bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B4D1E4;
+    border-radius: 20px;
+}
+  
+::-webkit-scrollbar-track {
+    background: white;
+}
 /* Checkout */
 .checkout-title {
     font-weight: bold;

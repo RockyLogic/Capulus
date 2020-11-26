@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6744a003bb.js"></script>
     <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -11,11 +12,11 @@
 </head>
 
 <body>
-    <nav id="navbar" class="navbar navbar-light navbar-expand-md ">
+    <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
         <div class="container">
-            <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="https://www.linkedin.com/in/rocky-kuang/">
-                <img src="images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
-                <h3 id="navbar-title"> Ecommerce</h3>
+            <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
+                <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
+                <h3 id="navbar-title" style="font-weight: 600;"> Ecommerce</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,19 +24,19 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav navbar-pages">
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="./index.html">Welcome</a>
+                        <a class="nav-item nav-link" href="./index.html" style="font-weight: 600;">Welcome</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="./shop.html">Shop</a>
+                        <a class="nav-item nav-link" href="./shop.html" style="font-weight: 600;">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="./about.html">About Us</a>
+                        <a class="nav-item nav-link" href="./about.html" style="font-weight: 600;">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="./contact.html">Contact Us</a>
+                        <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="./cart.html">Cart</a>
+                        <button onclick="window.location.href='cart.html'" class="btn bluebtn nav-item nav-link" href="./cart.html">Cart <i class="fas fa-shopping-cart"></i></button>
                     </li>
                 </ul>
             </div>
@@ -43,7 +44,7 @@
     <br>
     <div class="container">
         <div class="row">
-          <?php
+            <?php
             include 'php/itemDisplay.php';
           ?>
         </div>

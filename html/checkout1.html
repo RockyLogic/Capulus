@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
@@ -11,7 +13,7 @@
 </head>
 
 <body>
-    <nav id="navbar" class="navbar navbar-light navbar-expand-md ">
+    <nav id="navbar" class="navbar navbar-light navbar-expand-md">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="https://www.linkedin.com/in/rocky-kuang/">
                 <img src="images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
@@ -44,31 +46,76 @@
     <div class="container">
         <br>
         <br>
-        <h1>Checkout</h1>
+        <h4 class="checkout-title">Checkout</h4>
         <br>
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <form action="" method="GET">
-                    <label for="Email">Email:</label><br>
-                    <input type="email" name="email" id="checkoutEmail" required placeholder="Email"><br><br>
-                    <label for="checkoutName">Name:</label><br>
-                    <input type="text" name="checkoutName" id="checkoutName" required placeholder="Name"><br><br>
-                    <label for="address1">Address 1:</label><br>
-                    <input type="text" name="address1" id="address1" required placeholder="Address 1"><br><br>
-                    <label for="address2">Address 2:</label><br>
-                    <input type="text" name="address2" id="address2" required placeholder="Address 2"><br><br>
-                    <label for="city">City:</label><br>
-                    <input type="text" name="city" id="city" required placeholder="City"><br><br>
-                    <label for="province">Province:</label><br>
-                    <input type="text" name="province" id="province" required placeholder="Province"><br><br>
-                    <label for="postal">Postal Code:</label><br>
-                    <input type="text" name="postal" id="postal" required placeholder="Postal Code"><br><br>
-                    <button type="submit" class="btn btn-success align-self-end" onclick="window.location.href='checkout2.html'">Payment</button>
+            <div id="checkout-form-wrapper" class="col-12 col-lg-8">
+                <form method="post" action="checkout2.html" onsubmit="return valInputCheckout(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'])">
+                    <div class="checkout-block-form">
+                        <label for="checkoutEmail">Email</label><br>
+                        <div>
+                            <input type="text" name="email" id="checkoutEmail" placeholder="you@example.com">
+                            <div class="field-error">Enter a valid email.</div>
+                        </div>
+                    </div>
+                    <table class="checkout-mult-form table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="checkoutNameFst">First Name</label>
+                                    <div>
+                                        <input type="text" name="checkoutNameFst" id="checkoutNameFst">
+                                        <div class="field-error">Enter a valid first name.</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label for="checkoutNameLst">Last Name</label>
+                                    <div>
+                                        <input type="text" name="checkoutNameLst" id="checkoutNameLst">
+                                        <div class="field-error">Enter a valid last name.</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="checkout-block-form">
+                        <label for="address1">Address</label><br>
+                        <div>
+                            <input type="text" name="address1" id="address1" placeholder="12345 Main St">
+                            <div class="field-error">Enter a valid primary address.</div>
+                        </div>
+                        <br>
+                        <label for="address2">Address 2</label><span> (Optional)</span><br>
+                        <div>
+                            <input type="text" name="address2" id="address2" placeholder="Apartment or suite">
+                            <div class="field-error">Enter a valid or empty secondary address.</div>
+                        </div>
+                        <br>
+                        <label for="city">City</label><br>
+                        <div>
+                            <input type="text" name="city" id="city">
+                            <div class="field-error">Enter a valid city name.</div>
+                        </div>
+                        <br>
+                        <label for="province">Province</label><br>
+                        <div>
+                            <input type="text" name="province" id="province">
+                            <div class="field-error">Enter a valid province name.</div>
+                        </div>
+                        <br>
+                        <label for="postal">Postal</label><br>
+                        <div>
+                            <input type="text" name="postal" id="postal">
+                            <div class="field-error">Enter a valid postal code.</div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success align-self-end">Billing</button>
                 </form>
             </div>
             <div class="col-12 col-lg-4">
                 <div id="cart-summary" class="d-flex flex-column">
-                    <h3>Summary</h3>
+                    <h4 class="summary-title">Summary</h4>
                     <div class="d-flex flex-row">
                         <div class="flex-grow-1">Subtotal:</div>
                         <div>$300.00</div>
@@ -85,7 +132,8 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js""></script>
+    <script src="../js/validation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>

@@ -108,6 +108,11 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.summary-title{
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
 #cart-summary{
     width: 100%;
     padding: 20px;
@@ -117,4 +122,41 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#cart-summary > div > div:first-child{
+    font-weight: 600;
+}
+
+/* Forms */
+.field-error {
+    font-size: 11.5px;
+    color: red;
+    display: none;
+}
+
 /* Checkout */
+.checkout-title {
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+#checkout-form-wrapper label {
+    font-weight: 600;
+    white-space: nowrap;
+}
+#checkout-form-wrapper input {
+    margin-bottom: 5px;
+}
+#checkout-form-wrapper .checkout-mult-form {
+    margin-bottom: 1.5rem;
+}
+#checkout-form-wrapper .checkout-mult-form:not(:first-child) {
+    margin-top: 1.5rem;
+}
+#checkout-form-wrapper .checkout-mult-form .mult-form-3 input {
+    width: 85%;
+}
+#checkout-form-wrapper .checkout-mult-form td {
+    padding: 0;
+}
+#checkout-form-wrapper .checkout-block-form input {
+    width: 95%;
+}

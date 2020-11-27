@@ -148,6 +148,7 @@ textarea {
     padding: 20px;
     width: 100%;
     border-radius: 10px;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -218,7 +219,13 @@ textarea {
     width: 95%;
 }
 
-
+#orderInfo{
+    padding: 20px 30px;
+    border-radius: 10px;
+    height: 60vh;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 /* Animations */
 @keyframes fadeInAndUp {
     from {

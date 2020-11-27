@@ -35,6 +35,7 @@ h1{
 #welcome3{
     width: calc(100vw - 10px);
     min-height: 95vh;
+    overflow-x: hidden;
 }
 
 .blueBtn{
@@ -215,4 +216,35 @@ textarea {
 }
 #checkout-form-wrapper .checkout-block-form input {
     width: 95%;
+}
+
+
+/* Animations */
+@keyframes fadeInAndUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0px);
+    }
 }

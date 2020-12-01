@@ -18,7 +18,7 @@ $img_url = $row["img_url"];
 
 
 $itemInfo = <<<EOD
-  <div class="col-12 col-lg-6 itemDisplayImage" style="background-image: url('images/$img_url');">
+  <div class="col-12 col-lg-6 itemDisplayImage" style="background-image: url('$img_url');">
 
   </div>
   <div class=" col-12 col-lg-6 d-flex flex-column justify-content-center" style="padding: 0 50px;">

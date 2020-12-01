@@ -20,7 +20,7 @@ if ($result->num_rows > 0){
     $preview = <<<EOD
 
       <div class="shop-item-box col-12 col-md-6 col-lg-4">
-        <div class="shop-item" style="background-image: url('images/$img_url');">
+        <div class="shop-item" style="background-image: url('$img_url');">
           <h5 class="shop-item-title">$name</h5>
           <button onClick="viewItem(this.id)" id="$id" class="btn btn-info" style="bottom:5%; right:45%; position: absolute;">View</a>
           <button onClick="addItem(this.id)" id="$id" class="btn btn-success" style="bottom:5%; right:10%; position: absolute;">Add To Cart</button>

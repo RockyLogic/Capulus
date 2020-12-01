@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/6744a003bb.js"></script>
     <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
-    <title>Our Store</title>
+    <title>Capulus</title>
 </head>
 
 <body>
@@ -16,7 +18,7 @@
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
                 <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
-                <h3 id="navbar-title" style="font-weight: 600;"> Ecommerce</h3>
+                <h3 id="navbar-title" style="font-weight: 600;"> Capulus</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,51 +48,30 @@
     <div class="container">
         <br>
         <br>
-        <h1>Thank you for your order</h1>
+        <h1>Thank you for your order!</h1>
         <br>
         <div class="row">
-            <div id="orderInfo" class="col-12 col-lg-8 slideRight">
-                <!-- template for order review-->
+            <div id="orderInfo" class="col-12 col-lg-6 slideRight">
                 <h5>Name:</h5>
-                <div>Rocky Kuang</div>
+                <div id="name-field">Loading...</div>
                 <br>
                 <h5>Address 1:</h5>
-                <div>413 Maple Street</div>
+                <div id="address1-field">Loading...</div>
                 <br>
                 <h5>Address 2: </h5>
-                <div>Unit 2808</div>
+                <div id="address2-field">Loading...</div>
                 <br>
                 <h5>City: </h5>
-                <div>Toronto</div>
+                <div id="city-field">Loading...</div>
                 <br>
                 <h5>Province: </h5>
-                <div>Ontario</div>
+                <div id="province-field">Loading...</div>
                 <br>
                 <h5>Postal Code: </h5>
-                <div>A1B 2C3</div>
+                <div id="postal-field">Loading...</div>
             </div>
-            <div class="col-12 col-lg-4 slideLeft" style="overflow-y: scroll; height: 60vh;">
-                <!-- cart item template -->
-                <div class="cart-item d-flex">
-                    <div style="margin-right: 20px;">Qtny: 1</div>
-                    <div style="overflow: hidden;" class="flex-grow-1">Jordan 1 </div>
-                    <div class="justify-self-end">$400.00</div>
-                </div>
-
-
-                <div class="cart-item d-flex">
-                    <div style="margin-right: 20px;">Qtny: 1</div>
-                    <div class="flex-grow-1">Jordan 1</div>
-                    <div class="justify-self-end">$1000.00</div>
-                </div>
-
-                <div class="cart-item d-flex">
-                    <div style="margin-right: 20px;">Qtny: 1</div>
-                    <div class="flex-grow-1">Jordan 1</div>
-                    <div class="justify-self-end">$100000.00</div>
-                </div>
-
-
+            <div class="col-12 col-lg-6 slideLeft" style="overflow-y: scroll; height: 60vh;">
+                <?php include 'php/cartItems.php'; ?>
             </div>
         </div>
     </div>
@@ -99,6 +80,7 @@
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/obtainOrder.js"></script>
 </body>
 
 </html>

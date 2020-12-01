@@ -29,7 +29,7 @@ $itemInfo = <<<EOD
     <p>$description</p>
     <br>
     <br>
-      <button onClick="addItem(this.id)" id="$id" class="btn btn-success" style="width:100%">Add To Cart</button>
+      <button onClick="addItem(this.id)" id="$id" class="btn btn-success" style="width:100%; margin-bottom: 20px;">Add To Cart</button>
     </div>
 EOD;
     print($itemInfo);

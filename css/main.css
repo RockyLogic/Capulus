@@ -108,7 +108,7 @@ h1{
 #contact{
     width: 100vw;
     margin-top: 3vh;
-    height: 80vh;
+    min-height: 80vh;
     text-align: center;
 }
 
@@ -176,6 +176,11 @@ textarea {
 
 #cart-summary > div > div:first-child{
     font-weight: 600;
+}
+
+#btn-info{
+    background-color: #B4D1E4;
+    border-color: #B4D1E4;
 }
 
 /* Forms */

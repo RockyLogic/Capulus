@@ -1,7 +1,7 @@
 <?php
 
 function in_dollar_form($param_val) {
-  return '$' . number_format((float)$param_val, 2, '.', '');
+    return '$' . number_format((float)$param_val, 2, '.', '');
 }
 
 #Load the database
@@ -15,23 +15,25 @@ $query = "SELECT id, name, price FROM products;";
 $result = $mysqli->query($query);
 
 $prodct_price_sum = 0;
-if ($result->num_rows > 0){
-  while($row = $result->fetch_assoc()){
-    $prodct_id = $row["id"];
-    $prodct_name = $row["name"];
-    $prodct_price = $row["price"];
-    $cart_quantity = 0;
-    if (isset($_COOKIE[$prodct_id])) {
-      $cart_quantity = $_COOKIE[$prodct_id];
-      $prodct_total = $prodct_price * $cart_quantity;
-      $str_prodct_total = in_dollar_form($prodct_total);
-      $prodct_price_sum += $prodct_total;
+$prodct_price_shipping = 0;
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $prodct_id = $row["id"];
+        $prodct_name = $row["name"];
+        $prodct_price = $row["price"];
+        $cart_quantity = 0;
+
+        if (isset($_COOKIE[$prodct_id])) {
+            $cart_quantity = $_COOKIE[$prodct_id];
+            $prodct_total = $prodct_price * $cart_quantity;
+            $prodct_price_sum += $prodct_total;
+            $prodct_price_shipping += 1.00 * $cart_quantity;
+        }
     }
-  }
 }
 
 $prodct_price_taxes = 0.13 * $prodct_price_sum;
-$prodct_price_shipping = 1.00;
 $prodct_price_total = $prodct_price_sum + $prodct_price_taxes + $prodct_price_shipping;
 
 $str_price_sum = in_dollar_form($prodct_price_sum);

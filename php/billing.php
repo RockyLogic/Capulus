@@ -38,7 +38,7 @@
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button onclick="window.location.href='cart.html'" class="btn bluebtn nav-item nav-link" href="./cart.html">Cart <i class="fas fa-shopping-cart"></i></button>
                     </li>
                 </ul>
             </div>
@@ -48,10 +48,15 @@
         <br>
         <br>
         <h1>Billing</h1>
+        <?php
+        echo "<pre>";
+        print_r($_POST);
+        echo "</pre>";
+        ?>
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
-                <form method="post" action="orderReview.html" onsubmit="return valInputBilling(['paymentName', 'cardNumber', 'cardExpiry', 'cardCVV'])">
+                <form method="post" action="orderReview.php" onsubmit="return (valInputBillingWithPHP(['paymentName', 'cardNumber', 'cardExpiry', 'cardCVV']) && valInputCheckoutWithPHP(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'], true))">
                     <div class="checkout-block-form">
                         <label for="paymentName">Billing Name</label><br>
                         <div>
@@ -76,6 +81,12 @@
                             <input type="text" name="cardCVV" id="cardCVV" placeholder="CVV">
                             <div class="field-error">Enter a valid card CVV.</div>
                         </div>
+                        <?php
+                        foreach ($_POST as $form_key => $form_val) {
+                            // Expected to echo out all fields and their values from checkout.php; form submission relies on this
+                            echo "<input type='hidden' name='$form_key' id='$form_key' value='$form_val'>";
+                        }
+                        ?>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-success align-self-end">Order Now</button>
@@ -86,7 +97,7 @@
             </div>
         </div>
     </div>
-    <script src="../js/validation.js"></script>
+    <script src="js/validation.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

@@ -38,7 +38,7 @@
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button onclick="window.location.href='cart.html'" class="btn bluebtn nav-item nav-link" href="./cart.html">Cart <i class="fas fa-shopping-cart"></i></button>
                     </li>
                 </ul>
             </div>
@@ -51,11 +51,11 @@
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
-                <form method="post" action="checkout2.html" onsubmit="return valInputCheckout(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'])">
+                <form method="post" action="billing.php" onsubmit="return valInputCheckoutWithPHP(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'])">
                     <div class="checkout-block-form">
                         <label for="checkoutEmail">Email</label><br>
                         <div>
-                            <input type="text" name="email" id="checkoutEmail" placeholder="Email">
+                            <input type="text" name="checkoutEmail" id="checkoutEmail" placeholder="Email">
                             <div class="field-error">Enter a valid email.</div>
                         </div>
                     </div>

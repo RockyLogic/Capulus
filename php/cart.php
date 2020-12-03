@@ -26,13 +26,13 @@ if ($result->num_rows > 0) {
         $cart_quantity = 0;
         $item_inv = $row["inv"];
 
-        if (isset($_COOKIE[$prodct_id])) {
+        if (isset($_COOKIE[$prodct_id]) && $_COOKIE[$prodct_id] > 0) {
             $cart_quantity = min($_COOKIE[$prodct_id], $item_inv);
             $prodct_total = $prodct_price * $cart_quantity;
             $prodct_price_sum += $prodct_total;
             $prodct_price_shipping += 1.00 * $cart_quantity;
 
-            array_push($prodct_details, array($cart_quantity, $prodct_name, $prodct_total));
+            array_push($prodct_details, array($cart_quantity, $prodct_name, $prodct_total, $prodct_id, $item_inv));
         }
     }
 }
@@ -104,9 +104,12 @@ $str_price_total = in_dollar_form($prodct_price_total);
                             $summed_prodcts_price = in_dollar_form($prodct_detail[2]);
                             echo "
                             <div class='cart-item d-flex'>
-                                <div style='margin-right: 20px;'>Qtny: $prodct_detail[0]</div>
-                                <div class='flex-grow-1'>$prodct_detail[1]</div>
-                                <div class='justify-self-end'>$summed_prodcts_price</div>
+                                <div class='align-self-center' style='margin-right: 20px;'>Qtny: $prodct_detail[0]</div>
+                                <div class='flex-grow-1 align-self-center'>$prodct_detail[1]</div>
+                                <div class='justify-self-end align-self-center'>$summed_prodcts_price</div>
+                                <button type='button' onclick='removeFromCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-minus-btn' >-</button>
+                                <button type='button' onclick='addToCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-plus-btn'>+</button>
+
                             </div>";
                         }
                         ?>
@@ -139,7 +142,8 @@ $str_price_total = in_dollar_form($prodct_price_total);
             </section>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-        <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="js/additional.js"></script>
     </body>
 </html>

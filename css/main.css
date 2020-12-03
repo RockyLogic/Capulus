@@ -183,6 +183,23 @@ textarea {
     border-color: #B4D1E4;
 }
 
+#cart-plus-btn{
+    padding: 0px;
+    width:30px;
+    height:30px;
+    text-align: center;
+    line-height: 15px;
+}
+
+#cart-minus-btn{
+    padding: 0px;
+    width:30px;
+    height:30px;
+    line-height: 15px;
+    margin-left:15px;
+    margin-right:5px;
+}
+
 /* Forms */
 .field-error {
     font-size: 11.5px;
@@ -200,7 +217,7 @@ textarea {
     background: #B4D1E4;
     border-radius: 20px;
 }
-  
+
 ::-webkit-scrollbar-track {
     background: white;
 }

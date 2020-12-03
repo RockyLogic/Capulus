@@ -35,13 +35,14 @@ function getCookie(cookieName) {
  * Adds products to cookies
  * @param {int}  itemId Item id
  */
-function addItem(itemId){
+function addItem(itemId, inv){
   temp = getCookie(itemId)
-  if (temp != ""){
-    setCookie(itemId, parseInt(temp) + 1, 30)
+  if (temp == ""){
+    setCookie(itemId, 1, 30);
+
   }
-  else{
-    setCookie(itemId, 1, 30)
+  else if(temp != inv){
+    setCookie(itemId, parseInt(temp) + 1, 30);
   }
 }
 
@@ -49,7 +50,24 @@ function addItem(itemId){
  * Redirects to the item description page
  * @param {int}  id Item id
  */
-function viewItem(id)
-{
+function viewItem(id){
   window.location.href = "itemDisplay.html?id=" + id;
+}
+
+
+function removeFromCart(id){
+  temp = getCookie(id)
+
+  if (temp != ""){
+    setCookie(id, parseInt(temp) - 1, 30)
+    document.location.reload(true);
+  }
+}
+
+
+function addToCart(id, inv){
+  if (inv != 0){
+    addItem(id, inv);
+    document.location.reload(true);
+  }
 }

@@ -5,7 +5,7 @@ $(function(){
 
     $.ajax({
       type: "POST",
-      url: "php/addForm.php",
+      url: "../php/addForm.php",
       data: dataString,
       //success: function () {
         //}

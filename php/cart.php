@@ -11,22 +11,24 @@ if ($mysqli -> connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     exit();
 }
-$query = "SELECT id, name, price FROM products;";
+$query = "SELECT id, name, price, inv FROM products WHERE inv > 0;";
 $result = $mysqli->query($query);
 
 $prodct_details = array();
 $prodct_price_sum = 0;
 $prodct_price_shipping = 0;
 
+
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $prodct_id = $row["id"];
         $prodct_name = $row["name"];
         $prodct_price = $row["price"];
+        $item_inv = $row["inv"];
         $cart_quantity = 0;
 
         if (isset($_COOKIE[$prodct_id])) {
-            $cart_quantity = $_COOKIE[$prodct_id];
+            $cart_quantity = min($_COOKIE[$prodct_id], $item_inv);
             $prodct_total = $prodct_price * $cart_quantity;
             $prodct_price_sum += $prodct_total;
             $prodct_price_shipping += 1.00 * $cart_quantity;
@@ -84,7 +86,7 @@ $str_price_total = in_dollar_form($prodct_price_total);
                             <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <button onclick="window.location.href='cart.html'" class="btn bluebtn nav-item nav-link" href="./cart.html">Cart <i class="fas fa-shopping-cart"></i></button>
+                            <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
                         </li>
                     </ul>
                 </div>

@@ -15,6 +15,7 @@ $name = $row["name"];
 $description = $row["description"];
 $price = $row["price"];
 $img_url = $row["img_url"];
+$inv = $row["inv"];
 
 
 $itemInfo = <<<EOD
@@ -25,7 +26,7 @@ $itemInfo = <<<EOD
     <h1>$name</h1>
     <h4>$$price</h4>
     <br>
-    <h4>Description</h4>
+    <p>Only $inv left in stock</p>
     <p>$description</p>
     <br>
     <br>

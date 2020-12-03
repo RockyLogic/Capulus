@@ -11,7 +11,7 @@ if ($mysqli -> connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     exit();
 }
-$query = "SELECT id, name, price FROM products;";
+$query = "SELECT id, name, price, inv FROM products;";
 $result = $mysqli->query($query);
 
 echo '<div class="col-12 col-lg-8">';
@@ -23,8 +23,10 @@ if ($result->num_rows > 0){
     $prodct_name = $row["name"];
     $prodct_price = $row["price"];
     $cart_quantity = 0;
+    $item_inv = $row["inv"];
+
     if (isset($_COOKIE[$prodct_id])) {
-      $cart_quantity = $_COOKIE[$prodct_id];
+      $cart_quantity = min($_COOKIE[$prodct_id], $item_inv);
       $prodct_total = $prodct_price * $cart_quantity;
       $str_prodct_total = in_dollar_form($prodct_total);
       $prodct_price_sum += $prodct_total;

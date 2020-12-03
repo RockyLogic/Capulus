@@ -7,7 +7,7 @@ if ($mysqli -> connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
     exit();
 }
-$query = "SELECT * FROM products;";
+$query = "SELECT * FROM products WHERE inv > 0;";
 $result = $mysqli->query($query);
 
 if ($result->num_rows > 0){

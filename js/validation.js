@@ -11,7 +11,7 @@ function _getSafeNodeVal(param_node) {
 /**
  * This function displays the next element node from a given one.
  * 
- * @param {*} param_node The desired node, expected to precede some other node
+ * @param {Node} param_node The desired node, expected to precede some other node
  * @param {Boolean} param_disp Whether to display the next sibling or not
  * @returns {undefined}
  */

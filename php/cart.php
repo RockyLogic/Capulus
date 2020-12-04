@@ -1,11 +1,21 @@
 <?php
+/**
+ * cart.php
+ * 
+ * This file represents the cart page, holding the cart products from the cookies & cart summary, precedes the checkout page
+ */
 
+/**
+ * This function returns the given number in dollar form: with 2 decimal places and a preceding dollar sign ('$').
+ * 
+ * @param {param_val} The number to convert to dollar form
+ * @returns {String} The dollar form representation of `param_val`
+ */
 function in_dollar_form($param_val) {
     return '$' . number_format((float)$param_val, 2, '.', '');
 }
 
-#Load the database
-#Enter database credentials
+// This block loads in the database through MySQLi credentials and queries for all products which have positive inventory
 $mysqli = new mysqli("localhost", "id15434053_admin", "&D>mnej=iv6U*%#=", "id15434053_ecommerce_db");
 if ($mysqli -> connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -14,6 +24,7 @@ if ($mysqli -> connect_errno) {
 $query = "SELECT id, name, price, inv FROM products WHERE inv > 0;";
 $result = $mysqli->query($query);
 
+// Initializing product details (of 5-arrays having quantity, title, total, ID, and inventory), subtotal and shipping variables
 $prodct_details = array();
 $prodct_price_sum = 0;
 $prodct_price_shipping = 0;
@@ -27,23 +38,31 @@ if ($result->num_rows > 0) {
         $item_inv = $row["inv"];
 
         if (isset($_COOKIE[$prodct_id]) && $_COOKIE[$prodct_id] > 0) {
+            // For each product whose ID matches with cart items' IDs (from the cookies), add to the subtotal and shipping
             $cart_quantity = min($_COOKIE[$prodct_id], $item_inv);
             $prodct_total = $prodct_price * $cart_quantity;
             $prodct_price_sum += $prodct_total;
             $prodct_price_shipping += 1.00 * $cart_quantity;
 
+            // Push the product's properties to the `prodct_details` array
             array_push($prodct_details, array($cart_quantity, $prodct_name, $prodct_total, $prodct_id, $item_inv));
         }
     }
 }
 
+// Calculating the HST taxes (`prodct_price_taxes`) and total (`prodct_price_total`)
 $prodct_price_taxes = 0.13 * $prodct_price_sum;
 $prodct_price_total = $prodct_price_sum + $prodct_price_taxes + $prodct_price_shipping;
 
+// For displaying purposes, have all of the subtotal, taxes, shipping, and total in dollar forms
 $str_price_sum = in_dollar_form($prodct_price_sum);
 $str_price_taxes = in_dollar_form($prodct_price_taxes);
 $str_price_shipping = in_dollar_form($prodct_price_shipping);
 $str_price_total = in_dollar_form($prodct_price_total);
+
+// Close the MySQLi connection
+$mysqli->close();
+
 ?>
 
 <html lang="en">
@@ -89,6 +108,7 @@ $str_price_total = in_dollar_form($prodct_price_total);
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>
 
         <div class="container">
@@ -99,8 +119,10 @@ $str_price_total = in_dollar_form($prodct_price_total);
             <section id="cart">
                 <div class="row">
                     <div class="col-12 col-lg-8">
+                        <!-- Cart Listing Block (Includes the quantity, title, total, along with interactions of ID and inventory for add/remove from cart) -->
                         <?php
                         foreach ($prodct_details as $prodct_detail) {
+                            // For displaying a single block of one product
                             $summed_prodcts_price = in_dollar_form($prodct_detail[2]);
                             echo "
                             <div class='cart-item d-flex'>
@@ -115,6 +137,7 @@ $str_price_total = in_dollar_form($prodct_price_total);
                         ?>
                     </div>
                     <div class="col-12 col-lg-4" style="margin-block-end: auto;">
+                        <!-- Cart Summary Block -->
                         <div id="cart-summary" class="d-flex flex-column">
                             <h4 class="summary-title">Summary</h4>
                             <div class="d-flex flex-row">

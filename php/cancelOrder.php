@@ -1,5 +1,12 @@
 <?php
+/**
+ * cancelOrder.php
+ * 
+ * This file represents the cancelOrder page, entirely used as a backend mechanism to send the success feedback of
+ * order-cancelling as a POST parameter, and deletion of the order from database
+ */
 
+// Extracted cancel ID from POST parameters, sanitized by trimming
 $in_cancel_id = trim($_POST["cancelledID"]);
 
 // This block connects to the database and queries for the order code, deleting it if it exists
@@ -9,6 +16,7 @@ if ($mysqli -> connect_errno) {
     exit();
 }
 
+// This block queries for and deletes the order with the given order ID, if possible; updates `cancel_success` on whether it succeeded
 $cancel_success = 'false';
 if (preg_match('/^[a-zA-Z0-9]+$/', $in_cancel_id)) {
     // Querying only for IDs with word-like characters
@@ -23,7 +31,9 @@ if (preg_match('/^[a-zA-Z0-9]+$/', $in_cancel_id)) {
     }
 }
 
+// Close the MySQLi connection
 $mysqli->close();
+
 ?>
 
 <html lang="en">
@@ -41,6 +51,7 @@ $mysqli->close();
         <input type='hidden' name='received_id' id='received_id' value='<?php echo "$in_cancel_id"; ?>'>
     </form>
     <script>
+        // Automatic form submission to cancel page, containing the success of the cancelled order and received ID
         document.getElementById("toCancelPage").submit();
     </script>
 </body>

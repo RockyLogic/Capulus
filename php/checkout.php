@@ -1,3 +1,11 @@
+<?php
+/**
+ * checkout.php
+ * 
+ * This file represents the checkout page, holding the checkout form & cart summary, precedes the billing page
+ */
+?>
+
 <html lang="en">
 
 <head>
@@ -51,8 +59,10 @@
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
+                <!-- Checkout Form for user's general information -->
                 <form method="post" action="billing.php" onsubmit="return valInputCheckoutWithPHP(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'])">
                     <div class="checkout-block-form">
+                        <!-- Checkout block holding fields: email -->
                         <label for="checkoutEmail">Email</label><br>
                         <div>
                             <input type="text" name="checkoutEmail" id="checkoutEmail" placeholder="Email">
@@ -60,6 +70,7 @@
                         </div>
                     </div>
                     <table class="checkout-mult-form table table-borderless">
+                        <!-- Checkout blocks side-by-side holding fields: first name, last name -->
                         <tbody>
                             <tr>
                                 <td>
@@ -80,6 +91,7 @@
                         </tbody>
                     </table>
                     <div class="checkout-block-form">
+                        <!-- Checkout block holding fields: address #1, address #2, city, province, postal code -->
                         <label for="address1">Address</label><br>
                         <div>
                             <input type="text" name="address1" id="address1" placeholder="Address">
@@ -111,10 +123,12 @@
                         </div>
                     </div>
                     <br>
+                    <!-- Proceed to billing page -->
                     <button type="submit" class="btn btn-success align-self-end">Billing</button>
                 </form>
             </div>
             <div class="col-12 col-lg-4">
+                <!-- PHP-generated cart summary page, which uses cookies -->
                 <?php include 'php/cartSummary.php'; ?>
             </div>
         </div>

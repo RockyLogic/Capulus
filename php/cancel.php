@@ -1,3 +1,12 @@
+<?php
+/**
+ * cancel.php
+ * 
+ * This file represents the cancel page, which holds a prompt for an order ID to delete; whether the deletion was successful or not,
+ * it can return feedback to the user based on output from cancelOrder.php
+ */
+?>
+
 <html lang="en">
 
 <head>
@@ -51,18 +60,22 @@
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
+                <!-- Order Cancel Form -->
                 <form method="post" action="cancelOrder.php">
                     <div class="checkout-block-form">
                         <label for="cancelledID">Order ID</label><br>
                         <input type="text" name="cancelledID" id="cancelledID">
                         <?php
                         if (isset($_POST['cancel_success']) && isset($_POST['received_id'])) {
+                            // If there was a cancel ID submission prior to this, it will display the success or failure of the order deletion
                             $received_id = $_POST['received_id'];
                             switch ($_POST['cancel_success']) {
                                 case 'true':
+                                    // When deletion succeeds, display a field success message
                                     echo "<div class='field-cancel field-success'>Order \"$received_id\" has been successfully cancelled.</div>";
                                     break;
                                 case 'false':
+                                    // When deletion fails, display a field error message
                                     echo "<div class='field-cancel field-error'>Order \"$received_id\" does not exist in the system.</div>";
                                     break;
                             }
@@ -70,6 +83,7 @@
                         ?>
                     </div>
                     <br>
+                    <!-- Proceed to cancelOrder page -->
                     <button type="submit" class="btn btn-success align-self-end">Submit</button>
                 </form>
             </div>

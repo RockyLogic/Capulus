@@ -1,12 +1,27 @@
 <?php
+/**
+ * orderReview.php
+ * 
+ * This file represents the orderReview page, which holds general form information (including the order ID) and bought items
+ */
 
+/**
+ * This function returns the given string capitalized but lower-case throughout all characters after the first
+ * 
+ * @param {param_str} The string to capitalize
+ * @returns {String} The capitalized string, all lower-case except for the first character of the string
+ */
 function capitalize_str($param_str) {
-    // Function which returns the given string capitalized on its first letter, lowercase on all others
     return ucwords(strtolower($param_str));
 }
 
+/**
+ * This function returns its trimmed version, also replaced with "N/A" when it comes up empty
+ * 
+ * @param {param_str} The string to trim
+ * @returns {String} The trimmed string, or "N/A" if its trimmed version is empty
+ */
 function sanitize_entry($param_str) {
-    // Function which returns its trimmed version, also replaced with "N/A" when it comes up empty
     $param_str = trim($param_str);
     return $param_str ? $param_str : "N/A";
 }
@@ -97,9 +112,11 @@ if (isset($_POST['orderid'])) {
         <br>
         <br>
         <h1>Thank you for your order!</h1>
+        <!-- Show order ID -->
         <h4>Your order ID is: <b><?php echo "$shown_orderid"; ?></b></h4>
         <br>
         <div class="row">
+            <!-- Order Info block which displays all of name, address #1, address #2, city, province, and postal code -->
             <div id="orderInfo" class="col-12 col-lg-6 slideRight" style="margin-bottom: 20px;">
                 <h5>Name:</h5>
                 <div id="name-field"><?php echo $shown_name ?></div>
@@ -120,6 +137,7 @@ if (isset($_POST['orderid'])) {
                 <div id="postal-field"><?php echo $shown_postal ?></div>
             </div>
             <div class="col-12 col-lg-6 slideLeft" style="overflow-y: scroll; height: 60vh;">
+                <!-- Display final items from cart, gathered from POST parameters (since cookies are gone, it must be from POST parameters) -->
                 <?php include 'php/cartItems.php'; ?>
             </div>
             <div class="cancel-order-blurb" style="margin-top: 50px;">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>

@@ -1,3 +1,11 @@
+<?php
+/**
+ * billing.php
+ * 
+ * This file represents the billing page, holding the billing form & cart summary, precedes the processOrder page (which automatically redirects to the orderReview page)
+ */
+?>
+
 <html lang="en">
 
 <head>
@@ -51,8 +59,10 @@
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
+                <!-- Checkout Form for user's billing information -->
                 <form method="post" action="processOrder.php" onsubmit="return (valInputBillingWithPHP(['paymentName', 'cardNumber', 'cardExpiry', 'cardCVV']) && valInputCheckoutWithPHP(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'], true))">
                     <div class="checkout-block-form">
+                        <!-- Checkout block holding fields: billing name, card number, expiry date, CVV number -->
                         <label for="paymentName">Billing Name</label><br>
                         <div>
                             <input type="text" name="paymentName" id="paymentName" placeholder="Billing Name">
@@ -84,10 +94,12 @@
                         ?>
                     </div>
                     <br>
+                    <!-- Proceed to billing page -->
                     <button type="submit" class="btn btn-success align-self-end">Order Now</button>
                 </form>
             </div>
             <div class="col-12 col-lg-4">
+                <!-- PHP-generated cart summary page, which uses cookies -->
                 <?php include 'php/cartSummary.php'; ?>
             </div>
         </div>

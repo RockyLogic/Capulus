@@ -129,8 +129,9 @@ $mysqli->close();
                                 <div class='align-self-center' style='margin-right: 20px;'>Qtny: $prodct_detail[0]</div>
                                 <div class='flex-grow-1 align-self-center'>$prodct_detail[1]</div>
                                 <div class='justify-self-end align-self-center'>$summed_prodcts_price</div>
-                                  <button type='button' onclick='removeFromCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-minus-btn' >-</button>
-                                  <button type='button' onclick='addToCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-plus-btn'>+</button>
+                                <button type='button' onclick='removeFromCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-minus-btn' >-</button>
+                                <button type='button' onclick='addToCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-plus-btn'>+</button>
+
                             </div>";
                         }
                         ?>
@@ -157,8 +158,18 @@ $mysqli->close();
                                 <div><?php echo $str_price_total; ?></div>
                             </div>
 
-                            <button class="btn btn-success align-self-end" style="position: absolute; bottom: 10%;" onclick="window.location.href='checkout.php'">Checkout</button>
+                            <?php
+                            if ($prodct_price_total > 0) {
+                                // If there is something being bought, then enable the checkout button
+                                echo "<button class=\"btn btn-success align-self-end\" style=\"position: absolute; bottom: 30%;\" onclick=\"window.location.href='checkout.php'\">Checkout</button>";
+                            }
+                            else {
+                                // There are no items being bought, disabling the checkout button
+                                echo "<button class=\"btn btn-success align-self-end\" style=\"position: absolute; bottom: 30%;\" disabled>Checkout</button>";
+                            }
+                            ?>
                         </div>
+                        <div class="cancel-order-blurb">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>
                     </div>
                 </div>
             </section>

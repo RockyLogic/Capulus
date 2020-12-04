@@ -106,7 +106,7 @@ function valInputCheckoutWithPHP(in_checkout_ids, warning = false) {
 function valInputBillingWithPHP(in_checkout_ids) {
     const rgx_billname = /^[a-zA-Z\'\- ]+$/;
     const rgx_cardnum = /^[0-9]+$/;
-    const rgx_cardexp = /^[0-9]{2}\/[0-9]{2}$/;
+    const rgx_cardexp = /^(1[0-2]|0[1-9])\/[0-9]{2}$/;
     const rgx_cvv = /^[0-9]{3}$/;
 
     const rgx_tests = [rgx_billname, rgx_cardnum, rgx_cardexp, rgx_cvv];

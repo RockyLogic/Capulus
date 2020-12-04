@@ -14,20 +14,18 @@ if ($mysqli -> connect_errno) {
 $query = "SELECT id, name, price, inv FROM products WHERE inv > 0;";
 $result = $mysqli->query($query);
 
-$prodct_price_sum = 0;
 if ($result->num_rows > 0){
   while($row = $result->fetch_assoc()){
-    $prodct_id = $row["id"];
+    $prodct_id = strval($row["id"]);
     $prodct_name = $row["name"];
     $prodct_price = $row["price"];
     $cart_quantity = 0;
     $item_inv = $row["inv"];
 
-    if (isset($_COOKIE[$prodct_id])) {
-      $cart_quantity = min($item_inv, $_COOKIE[$prodct_id]);
+    if (isset($_POST['_cart_prodct_id_' . $prodct_id])) {
+      $cart_quantity = min($item_inv, $_POST['_cart_prodct_id_' . $prodct_id]);
       $prodct_total = $prodct_price * $cart_quantity;
       $str_prodct_total = in_dollar_form($prodct_total);
-      $prodct_price_sum += $prodct_total;
 
 
       $preview = <<<CARTITEM

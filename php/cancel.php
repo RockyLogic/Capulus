@@ -47,52 +47,34 @@
     <div class="container">
         <br>
         <br>
-        <h1>Billing</h1>
+        <h1>Cancel Order</h1>
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
-                <form method="post" action="processOrder.php" onsubmit="return (valInputBillingWithPHP(['paymentName', 'cardNumber', 'cardExpiry', 'cardCVV']) && valInputCheckoutWithPHP(['checkoutEmail', 'checkoutNameFst', 'checkoutNameLst', 'address1', 'address2', 'city', 'province', 'postal'], true))">
+                <form method="post" action="cancelOrder.php">
                     <div class="checkout-block-form">
-                        <label for="paymentName">Billing Name</label><br>
-                        <div>
-                            <input type="text" name="paymentName" id="paymentName" placeholder="Billing Name">
-                            <div class="field-error">Enter a valid billing name.</div>
-                        </div>
-                        <br>
-                        <label for="cardNumber">Card Number</label><br>
-                        <div>
-                            <input type="text" name="cardNumber" id="cardNumber" placeholder="Card Number">
-                            <div class="field-error">Enter a valid card number.</div>
-                        </div>
-                        <br>
-                        <label for="cardExpiry">Expiry Date (mm/yy)</label><br>
-                        <div>
-                            <input type="text" name="cardExpiry" id="cardExpiry" placeholder="MM/YY">
-                            <div class="field-error">Enter a valid expiry date in format "mm/yy".</div>
-                        </div>
-                        <br>
-                        <label for="cardCVV">CVV</label><br>
-                        <div>
-                            <input type="text" name="cardCVV" id="cardCVV" placeholder="CVV">
-                            <div class="field-error">Enter a valid card CVV.</div>
-                        </div>
+                        <label for="cancelledID">Order ID</label><br>
+                        <input type="text" name="cancelledID" id="cancelledID">
                         <?php
-                        foreach ($_POST as $form_key => $form_val) {
-                            // Expected to echo out all fields and their values from checkout.php; form submission relies on this
-                            echo "<input type='hidden' name='$form_key' id='$form_key' value='$form_val'>";
+                        if (isset($_POST['cancel_success']) && isset($_POST['received_id'])) {
+                            $received_id = $_POST['received_id'];
+                            switch ($_POST['cancel_success']) {
+                                case 'true':
+                                    echo "<div class='field-cancel field-success'>Order \"$received_id\" has been successfully cancelled.</div>";
+                                    break;
+                                case 'false':
+                                    echo "<div class='field-cancel field-error'>Order \"$received_id\" does not exist in the system.</div>";
+                                    break;
+                            }
                         }
                         ?>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-success align-self-end">Order Now</button>
+                    <button type="submit" class="btn btn-success align-self-end">Submit</button>
                 </form>
-            </div>
-            <div class="col-12 col-lg-4">
-                <?php include 'php/cartSummary.php'; ?>
             </div>
         </div>
     </div>
-    <script src="js/validation.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

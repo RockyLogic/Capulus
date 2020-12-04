@@ -12,36 +12,36 @@ function sanitize_entry($param_str) {
 }
 
 // This entire block sets shown variables to POST field values
-$shown_name = "ERR";
+$shown_name = $shown_addr1 = $shown_addr2 = $shown_city = $shown_prov = $shown_postal = $shown_orderid = "ERR";
 if (isset($_POST['checkoutNameFst']) && isset($_POST['checkoutNameLst'])) {
+    // Assign first & last names to `fname_str` & `lname_str`, then full name to `shown_name`
     $fname_str = capitalize_str($_POST['checkoutNameFst']);
     $lname_str = capitalize_str($_POST['checkoutNameLst']);
     $shown_name = sanitize_entry("$fname_str $lname_str");
 }
-
-$shown_addr1 = "ERR";
 if (isset($_POST['address1'])) {
+    // Assign `shown_addr1` with the address #1 field
     $shown_addr1 = sanitize_entry(capitalize_str($_POST['address1']));
 }
-
-$shown_addr2 = "ERR";
 if (isset($_POST['address2'])) {
+    // Assign `shown_addr2` with the address #2 field
     $shown_addr2 = sanitize_entry(capitalize_str($_POST['address2']));
 }
-
-$shown_city = "ERR";
 if (isset($_POST['city'])) {
+    // Assign `shown_city` with the city field
     $shown_city = sanitize_entry(capitalize_str($_POST['city']));
 }
-
-$shown_prov = "ERR";
 if (isset($_POST['province'])) {
+    // Assign `shown_prov` with the province field
     $shown_prov = sanitize_entry(capitalize_str($_POST['province']));
 }
-
-$shown_postal = "ERR";
 if (isset($_POST['postal'])) {
-    $shown_postal = sanitize_entry(capitalize_str($_POST['postal']));
+    // Assign `shown_postal` with the postal field
+    $shown_postal = sanitize_entry(strtoupper($_POST['postal']));
+}
+if (isset($_POST['orderid'])) {
+    // Assign `shown_postal` with the order ID field
+    $shown_orderid = $_POST['orderid'];
 }
 
 ?>
@@ -86,7 +86,7 @@ if (isset($_POST['postal'])) {
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.html'" class="btn bluebtn nav-item nav-link" href="./cart.html">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
                     </li>
                 </ul>
             </div>
@@ -97,11 +97,7 @@ if (isset($_POST['postal'])) {
         <br>
         <br>
         <h1>Thank you for your order!</h1>
-        <?php
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
-        ?>
+        <h4>Your order ID is: <b><?php echo "$shown_orderid"; ?></b></h4>
         <br>
         <div class="row">
             <div id="orderInfo" class="col-12 col-lg-6 slideRight" style="margin-bottom: 20px;">
@@ -126,6 +122,7 @@ if (isset($_POST['postal'])) {
             <div class="col-12 col-lg-6 slideLeft" style="overflow-y: scroll; height: 60vh;">
                 <?php include 'php/cartItems.php'; ?>
             </div>
+            <div class="cancel-order-blurb" style="margin-top: 50px;">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>
         </div>
     </div>
 
@@ -133,7 +130,6 @@ if (isset($_POST['postal'])) {
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="js/animations.js"></script>
-    <script src="js/obtainOrder.js"></script>
 </body>
 
 </html>

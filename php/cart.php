@@ -135,8 +135,18 @@ $str_price_total = in_dollar_form($prodct_price_total);
                                 <div><?php echo $str_price_total; ?></div>
                             </div>
 
-                            <button class="btn btn-success align-self-end" style="position: absolute; bottom: 10%;" onclick="window.location.href='checkout.php'">Checkout</button>
+                            <?php
+                            if ($prodct_price_total > 0) {
+                                // If there is something being bought, then enable the checkout button
+                                echo "<button class=\"btn btn-success align-self-end\" style=\"position: absolute; bottom: 30%;\" onclick=\"window.location.href='checkout.php'\">Checkout</button>";
+                            }
+                            else {
+                                // There are no items being bought, disabling the checkout button
+                                echo "<button class=\"btn btn-success align-self-end\" style=\"position: absolute; bottom: 30%;\" disabled>Checkout</button>";
+                            }
+                            ?>
                         </div>
+                        <div class="cancel-order-blurb">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>
                     </div>
                 </div>
             </section>

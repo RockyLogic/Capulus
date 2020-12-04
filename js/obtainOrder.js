@@ -1,6 +1,9 @@
 function capitalize_str(param_str) {
     // Function which returns the given string capitalized on its first letter, lowercase on all others
-    return param_str.charAt(0).toUpperCase() + param_str.slice(1).toLowerCase();
+    if (param_str) {
+        return param_str.charAt(0).toUpperCase() + param_str.slice(1).toLowerCase();
+    }
+    return param_str;
 }
 
 function sanitize_entry(param_str) {

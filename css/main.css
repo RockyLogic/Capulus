@@ -200,11 +200,29 @@ textarea {
     margin-right:5px;
 }
 
+.cancel-order-blurb{
+    margin-bottom: 50px;
+    margin-top: 25px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Forms */
 .field-error {
     font-size: 11.5px;
     color: red;
     display: none;
+}
+.field-success {
+    font-size: 11.5px;
+    color: green;
+    display: none;
+}
+.field-cancel {
+    display: block;
+    font-size: 12px;
 }
 
 /* Scroll Bar */

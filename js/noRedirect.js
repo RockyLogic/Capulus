@@ -1,3 +1,6 @@
+/**
+ * Prevents page from redirection while sending form data to post
+ */
 $(function(){
   $( "form" ).on( "submit", function(e) {
 
@@ -5,11 +8,12 @@ $(function(){
 
     $.ajax({
       type: "POST",
-      url: "../php/addForm.php",
+      url: "php/addForm.php",
       data: dataString,
-      //success: function () {
-        //}
+
       });
+
+      //Empty out form field
       $("form")[0].reset();
       e.preventDefault();
   });

@@ -12,7 +12,7 @@ function setCookie(name, value, days) {
 }
 
 /**
- * Helper method to get a cookie
+ * Helper method to get a cookie by cookie name
  * @param {string}  cookieName Cookie name
  */
 function getCookie(cookieName) {
@@ -34,6 +34,7 @@ function getCookie(cookieName) {
 /**
  * Adds products to cookies
  * @param {int}  itemId Item id
+ * @param {int}  inv Item inv
  */
 function addItem(itemId, inv){
   temp = getCookie(itemId)
@@ -54,17 +55,25 @@ function viewItem(id){
   window.location.href = "itemDisplay.html?id=" + id;
 }
 
-
+/**
+ * Remove products from cart
+ * @param {int}  id Item id
+ */
 function removeFromCart(id){
   temp = getCookie(id)
 
+  //if cookie set
   if (temp != ""){
     setCookie(id, parseInt(temp) - 1, 30)
     document.location.reload(true);
   }
 }
 
-
+/**
+ * Add products to cart + refreshes page
+ * @param {int}  id Item id
+ *  @param {int}  inv Item inv
+ */
 function addToCart(id, inv){
   if (inv != 0){
     addItem(id, inv);

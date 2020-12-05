@@ -1,11 +1,11 @@
 <?php
 /**
  * checkout.php
- * 
+ *
  * This file represents the checkout page, holding the checkout form & cart summary, precedes the billing page
  */
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +25,7 @@
     <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
-                <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
+                <img src="images/store.png" alt="Store logo" width="50" height="50" class="d-inline-block align-top" style="margin-right: 10px;">
                 <h3 id="navbar-title" style="font-weight: 600;"> Capulus</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,10 +46,11 @@
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <a onclick="window.location.href='./cart.php'" class="btn blueBtn nav-item nav-link " href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
             </div>
+        </div>
     </nav>
 
     <div class="container">

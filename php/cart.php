@@ -1,13 +1,13 @@
 <?php
 /**
  * cart.php
- * 
+ *
  * This file represents the cart page, holding the cart products from the cookies & cart summary, precedes the checkout page
  */
 
 /**
  * This function returns the given number in dollar form: with 2 decimal places and a preceding dollar sign ('$').
- * 
+ *
  * @param {param_val} The number to convert to dollar form
  * @returns {String} The dollar form representation of `param_val`
  */
@@ -64,7 +64,7 @@ $str_price_total = in_dollar_form($prodct_price_total);
 $mysqli->close();
 
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -83,7 +83,7 @@ $mysqli->close();
         <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
             <div class="container">
                 <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
-                    <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
+                    <img src="images/store.png" alt="Store Logo" width="50" height="50" class="d-inline-block align-top" style="margin-right: 10px;">
                     <h3 id="navbar-title" style="font-weight: 600;"> Capulus</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +104,7 @@ $mysqli->close();
                             <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                         </li>
                         <li class="nav-item">
-                            <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                            <a onclick="window.location.href='./cart.php'" class="btn nav-item nav-link blueBtn" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -129,8 +129,8 @@ $mysqli->close();
                                 <div class='align-self-center' style='margin-right: 20px;'>Qtny: $prodct_detail[0]</div>
                                 <div class='flex-grow-1 align-self-center'>$prodct_detail[1]</div>
                                 <div class='justify-self-end align-self-center'>$summed_prodcts_price</div>
-                                <button type='button' onclick='removeFromCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-minus-btn' >-</button>
-                                <button type='button' onclick='addToCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center' id='cart-plus-btn'>+</button>
+                                <button type='button' onclick='removeFromCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center cart-minus-btn'>-</button>
+                                <button type='button' onclick='addToCart($prodct_detail[3], $prodct_detail[4])' class='btn btn-success btn-xs align-self-center cart-plus-btn'>+</button>
 
                             </div>";
                         }

@@ -1,13 +1,13 @@
 <?php
 /**
  * orderReview.php
- * 
+ *
  * This file represents the orderReview page, which holds general form information (including the order ID) and bought items
  */
 
 /**
  * This function returns the given string capitalized but lower-case throughout all characters after the first
- * 
+ *
  * @param {param_str} The string to capitalize
  * @returns {String} The capitalized string, all lower-case except for the first character of the string
  */
@@ -17,7 +17,7 @@ function capitalize_str($param_str) {
 
 /**
  * This function returns its trimmed version, also replaced with "N/A" when it comes up empty
- * 
+ *
  * @param {param_str} The string to trim
  * @returns {String} The trimmed string, or "N/A" if its trimmed version is empty
  */
@@ -60,7 +60,7 @@ if (isset($_POST['orderid'])) {
 }
 
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -80,7 +80,7 @@ if (isset($_POST['orderid'])) {
     <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
-                <img src="../images/store.png" width="50px" height="50px" class="d-inline-block align-top" style="margin-right: 10px;">
+                <img src="images/store.png" alt="Store logo" width="50" height="50" class="d-inline-block align-top" style="margin-right: 10px;">
                 <h3 id="navbar-title" style="font-weight: 600;"> Capulus</h3>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,10 +101,11 @@ if (isset($_POST['orderid'])) {
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <a onclick="window.location.href='./cart.php'" class="btn blueBtn nav-item nav-link " href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
             </div>
+        </div>
     </nav>
 
 
@@ -140,7 +141,7 @@ if (isset($_POST['orderid'])) {
                 <!-- Display final items from cart, gathered from POST parameters (since cookies are gone, it must be from POST parameters) -->
                 <?php include 'php/cartItems.php'; ?>
             </div>
-            <div class="cancel-order-blurb" style="margin-top: 50px;">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>
+            <div class="cancel-order-blurb" style="margin-top: 50;">Looking to cancel an order? Click <a href="cancel.php">here.</a></div>
         </div>
     </div>
 

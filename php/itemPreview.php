@@ -12,7 +12,7 @@ $result = $mysqli->query($query);
 // This block displays all positive-inventory products which are in the database
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-    
+
     $name = $row["name"];
     $img_url = $row["img_url"];
     $id = $row["id"];
@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
       <div class="shop-item-box col-12 col-md-6 col-lg-4">
         <div class="shop-item" style="background-image: url('$img_url');">
           <h5 class="shop-item-title">$name</h5>
-          <button onClick="viewItem(this.id, $inv)" id="$id" class="btn btn-info" style="bottom:5%; right:45%; position: absolute;">View</a>
+          <button onClick="viewItem(this.id, $inv)" id="v$id" class="btn btn-info" style="bottom:5%; right:45%; position: absolute;">View</button>
           <button onClick="addItem(this.id, $inv)" id="$id" class="btn btn-success" style="bottom:5%; right:10%; position: absolute;">Add To Cart</button>
         </div>
       </div>

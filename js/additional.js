@@ -52,7 +52,8 @@ function addItem(itemId, inv){
  * @param {int}  id Item id
  */
 function viewItem(id){
-  window.location.href = "itemDisplay.html?id=" + id;
+  new_id = id.slice(1,);
+  window.location.href = "itemDisplay.html?id=" + new_id ;
 }
 
 /**

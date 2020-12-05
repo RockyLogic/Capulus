@@ -189,7 +189,7 @@ textarea {
 }
 
 /*Increase stock and decrease stock number in cart*/
-#cart-plus-btn{
+.cart-plus-btn{
     padding: 0px;
     width:30px;
     height:30px;
@@ -197,7 +197,7 @@ textarea {
     line-height: 15px;
 }
 
-#cart-minus-btn{
+.cart-minus-btn{
     padding: 0px;
     width:30px;
     height:30px;

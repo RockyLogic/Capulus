@@ -6,6 +6,8 @@ body{
 h1{
     font-weight: 600;
 }
+
+/* about page images of the team */
 .teamImages{
     width: 200px;
     height: 200px;
@@ -13,9 +15,6 @@ h1{
     background-color: #f8706b;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 15px;
-}
-.nav-item{
-    margin-left: 10px;
 }
 
 /* Welcome Page */
@@ -26,18 +25,21 @@ h1{
 
 }
 
+/* Section 2 of Welcome Page */
 #welcome2{
     width: calc(100vw - 10px);
     min-height: 95vh;
     overflow: hidden;
 }
 
+/* Section 3 of Welcome Page */
 #welcome3{
     width: calc(100vw - 10px);
     min-height: 95vh;
     overflow-x: hidden;
 }
 
+/*ATC and Welcome Page Buttons*/
 .blueBtn{
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -62,9 +64,11 @@ h1{
     width: 100%;
 }
 
+/* Shop Items */
 .shop-item-box{
     margin: 25px 0px;
 }
+
 .shop-item{
     padding: 15px 30px;
     height: 300px;
@@ -112,6 +116,7 @@ h1{
     text-align: center;
 }
 
+/* Checkout Pages text input format */
 input {
     border: none;
     border-bottom: 1px solid black;
@@ -127,6 +132,7 @@ textarea {
     padding: 5px;
 }
 
+/*form for contacting store*/
 #contactForm{
     border-radius: 20px;
     padding: 60px 15px;
@@ -134,15 +140,12 @@ textarea {
     /* border: 2px solid rgb(158, 158, 158); */
 }
 
-#label{
-    width: 100%;
-}
-
 /* Cart */
 #cart{
     width: 100%;
 }
 
+/* Cart page item display */
 .cart-item{
     min-width: 350px;
     margin-bottom: 20px;
@@ -153,6 +156,7 @@ textarea {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* Cart Page Summary*/
 .summary-title{
     font-weight: 600;
     padding-bottom: 1rem;
@@ -178,11 +182,13 @@ textarea {
     font-weight: 600;
 }
 
+/* Update BTN info color to different shade of blue */
 #btn-info{
     background-color: #B4D1E4;
     border-color: #B4D1E4;
 }
 
+/*Increase stock and decrease stock number in cart*/
 #cart-plus-btn{
     padding: 0px;
     width:30px;
@@ -225,7 +231,6 @@ textarea {
     font-size: 12px;
 }
 
-/* Scroll Bar */
 /* Webpage Scroll Bar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -268,6 +273,7 @@ textarea {
     background-color: rgba(0, 0, 0, 0);
 }
 
+/*Order Review Page*/
 #orderInfo{
     padding: 20px 30px;
     border-radius: 10px;

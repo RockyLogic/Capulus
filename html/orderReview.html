@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/6744a003bb.js"></script>
-    <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+
+    <!-- Google Fonts Montserrat -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <title>Capulus</title>
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
@@ -44,12 +55,14 @@
             </div>
     </nav>
 
-
+    <!-- Order Review Page -->
     <div class="container">
         <br>
         <br>
         <h1>Thank you for your order!</h1>
         <br>
+
+        <!-- Customer Shipping Information -->
         <div class="row">
             <div id="orderInfo" class="col-12 col-lg-6 slideRight" style="margin-bottom: 20px;">
                 <h5>Name:</h5>
@@ -70,6 +83,8 @@
                 <h5>Postal Code: </h5>
                 <div id="postal-field">Loading...</div>
             </div>
+
+            <!-- Summary of items in order -->
             <div class="col-12 col-lg-6 slideLeft" style="overflow-y: scroll; height: 60vh;">
                 <?php include 'php/cartItems.php'; ?>
             </div>

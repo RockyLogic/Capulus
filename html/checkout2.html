@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/6744a003bb.js"></script>
-    <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+
+    <!-- Google Fonts Montserrat -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/store.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <title>Capulus</title>
 </head>
 
 <body>
+    <!-- navbar -->
     <nav id="navbar" class="navbar navbar-light navbar-expand-md" style="padding: 30px 1rem;">
         <div class="container">
             <a id="navbar-logo" class="navbar-brand d-flex align-items-center" target="_blank" href="./index.html">
@@ -44,6 +55,7 @@
             </div>
     </nav>
 
+    <!-- Billing page -->
     <div class="container">
         <br>
         <br>
@@ -51,6 +63,8 @@
         <br>
         <div class="row">
             <div id="checkout-form-wrapper" class="col-12 col-lg-8">
+
+                <!-- Billing information form -->
                 <form method="post" action="orderReview.html" onsubmit="return valInputBilling(['paymentName', 'cardNumber', 'cardExpiry', 'cardCVV'])">
                     <div class="checkout-block-form">
                         <label for="paymentName">Billing Name</label><br>
@@ -81,11 +95,14 @@
                     <button type="submit" class="btn btn-success align-self-end">Order Now</button>
                 </form>
             </div>
+
+            <!-- Php to  generate cart summary -->
             <div class="col-12 col-lg-4">
                 <?php include 'php/cartSummary.php'; ?>
             </div>
         </div>
     </div>
+
     <script src="../js/validation.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

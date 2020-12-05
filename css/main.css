@@ -184,8 +184,8 @@ textarea {
 
 /* Update BTN info color to different shade of blue */
 #btn-info{
-    background-color: #B4D1E4;
-    border-color: #B4D1E4;
+    background-color: #B4D1E4 !important;
+    border-color: #B4D1E4 !important;
 }
 
 /*Increase stock and decrease stock number in cart*/

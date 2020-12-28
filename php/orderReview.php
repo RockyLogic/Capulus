@@ -101,7 +101,7 @@ if (isset($_POST['orderid'])) {
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a onclick="window.location.href='./cart.php'" class="btn blueBtn nav-item nav-link " href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
+                        <a style="margin-left:30px;" onclick="window.location.href='./cart.php'" class="btn blueBtn nav-item nav-link " href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
             </div>

@@ -47,7 +47,7 @@
                         <a class="nav-item nav-link" href="./contact.html" style="font-weight: 600;">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <button onclick="window.location.href='cart.php'" class="btn bluebtn nav-item nav-link" href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></button>
+                        <a style="margin-left:30px;" onclick="window.location.href='./cart.php'" class="btn blueBtn nav-item nav-link " href="./cart.php">Cart <i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
             </div>
